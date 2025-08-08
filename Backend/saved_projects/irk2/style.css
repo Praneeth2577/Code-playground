@@ -1,0 +1,30 @@
+/* Add your CSS here */
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #316dca;
+}
+
+p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #3a99f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}

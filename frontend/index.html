@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Playground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="playground-container">
+        <header class="playground-header">
+            <div class="logo">
+                <span class="code-icon">&lt;/&gt;</span>
+                <h1>Gradious Code Playground</h1>
+            </div>
+            <div class="header-actions">
+                <button class="run-btn">
+                    <span class="play-icon"></span>
+                    Run
+                </button>
+                <button class="save-btn">
+                    <span class="save-icon"></span>
+                    Save
+                </button>
+                <button class="load-btn">
+                    <span class="load-icon"></span>
+                    Load
+                </button>
+                <button class="clear-btn">
+                    <span class="clear-icon"></span>
+                    Clear
+                </button>
+            </div>
+        </header>
+
+        <div class="playground-content">
+            <div class="editor-section">
+                <div class="editor-tabs">
+                    <div class="tab active" data-tab="html">HTML</div>
+                    <div class="tab" data-tab="css">CSS</div>
+                    <div class="tab" data-tab="javascript">JavaScript</div>
+                </div>
+                <div class="editor-container">
+                    <div class="editor active" id="html-editor">
+                        <textarea id="html-code" class="code-area">
+<div class="container">
+    <h1>Welcome to Code Playground!</h1>
+    <p>Start editing HTML, CSS, and JavaScript to see your changes live.</p>
+    <button id="demo-btn" class="btn">Click me!</button>
+</div></textarea>
+                    </div>
+                    <div class="editor" id="css-editor">
+                        <textarea id="css-code" class="code-area">
+/* Add your CSS here */
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #316dca;
+}
+
+p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #3a99f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}</textarea>
+                    </div>
+                    <div class="editor" id="javascript-editor">
+                        <textarea id="js-code" class="code-area">
+// Add your JavaScript here
+document.getElementById('demo-btn').addEventListener('click', function() {
+    alert('Button clicked!');
+});</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-header">
+                    <span>Preview</span>
+                    <button class="refresh-btn">refresh</button>
+                </div>
+                <div class="preview-container">
+                    <iframe id="preview-frame"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dialog-overlay" id="save-dialog">
+        <div class="dialog-container">
+            <div class="dialog-header">
+                <h2>Save Project</h2>
+                <button class="close-btn" id="close-save-dialog">&times;</button>
+            </div>
+            <div class="dialog-content">
+                <div class="form-group">
+                    <label for="project-name">Project Name:</label>
+                    <input type="text" id="project-name" placeholder="Enter project name" required>
+                </div>
+                <div class="form-actions">
+                    <button class="dialog-btn cancel-btn" id="cancel-save">Cancel</button>
+                    <button class="dialog-btn save-btn-confirm" id="confirm-save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog-overlay" id="load-dialog">
+        <div class="dialog-container">
+            <div class="dialog-header">
+                <h2>Load Project</h2>
+                <button class="close-btn" id="close-load-dialog">&times;</button>
+            </div>
+            <div class="dialog-content">
+                <div class="projects-list" id="projects-list">
+                    </div>
+                <div class="form-actions">
+                    <button class="dialog-btn cancel-btn" id="cancel-load">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

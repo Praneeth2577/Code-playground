@@ -1,0 +1,393 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Playground Container */
+.playground-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border: 1px solid #e1e4e8;
+}
+
+/* Header */
+.playground-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e4e8;
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.code-icon {
+    color: #4b5cf5;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.run-btn, .save-btn, .clear-btn, .load-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+}
+
+.run-btn {
+    background-color: #4b5cf5;
+    color: white;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.load-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.clear-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.play-icon, .save-icon, .clear-icon, .load-icon {
+    font-size: 12px;
+}
+
+/* Playground Content */
+.playground-content {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100vh - 60px);
+}
+
+/* Editor Section */
+.editor-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e1e4e8;
+}
+
+.editor-tabs {
+    display: flex;
+    background-color: #f6f8fa;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #57606a;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    color: #0550ae;
+    border-bottom: 2px solid #0550ae;
+    background-color: #ffffff;
+}
+
+.editor-container {
+    flex-grow: 1;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.editor.active {
+    display: block;
+}
+
+.code-area {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: none;
+    resize: none;
+    outline: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    tab-size: 4;
+}
+
+/* Preview Section */
+.preview-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e1e4e8;
+    background-color: #f6f8fa;
+    color: #57606a;
+    font-size: 14px;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    color: #57606a;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.preview-container {
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #ffffff;
+}
+
+/* Dialog Overlay Styles */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.dialog-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialog-container {
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.dialog-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.dialog-header h2 {
+    font-size: 18px;
+    color: #24292e;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #57606a;
+    cursor: pointer;
+}
+
+.dialog-content {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #24292e;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4b5cf5;
+    box-shadow: 0 0 0 2px rgba(75, 92, 245, 0.2);
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.dialog-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.save-btn-confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+.save-btn-confirm:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Projects List Styles */
+.projects-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.project-item:hover {
+    background-color: #f6f8fa;
+}
+
+.project-name {
+    font-weight: 500;
+    color: #24292e;
+}
+
+.project-date {
+    font-size: 12px;
+    color: #57606a;
+}
+
+.project-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.project-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.load-project-btn {
+    background-color: #4b5cf5;
+    color: white;
+}
+
+.delete-project-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.empty-projects {
+    text-align: center;
+    color: #57606a;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .playground-content {
+        flex-direction: column;
+    }
+    
+    .editor-section, .preview-section {
+        width: 100%;
+        height: 50%;
+    }
+    
+    .header-actions {
+        flex-wrap: wrap;
+    }
+}
